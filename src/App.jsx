@@ -4,10 +4,14 @@ import DiaryInput from "./components/DiaryInput";
 import styled from "styled-components";
 import logo from "./assets/logo.png";
 import DiaryDisplay from "./components/DiaryDisplay";
-import { message } from "antd";
+import { Button, Switch, message } from "antd";
 import DiaryPersonal from "./components/DiaryPersonal";
 import DiaryInputVoice from "./components/DiaryInputVoice";
 import "./App.css";
+import Robot from "./assets/mainRobot.png";
+import { BrowserRouter } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+// import language from "./pages/Language";
 
 
 const dummyData = JSON.parse(
@@ -50,15 +54,24 @@ function App() {
 
   return (
     <AppConatiner>
+      
       {contextHolder}
-      <AppTitle>
-        심리상담 GPT<br></br> 
-        너의 목소리가 들려
-      </AppTitle>
       <div className="subtitle">
-        마음의 소리에 귀 기울이는 AI 상담사
+        AI Chat for
       </div>
+      <AppTitle>
+        Beauty & Emotion
+      </AppTitle>
+      <br></br>
+      <img className="Robot" src={Robot} width={230} height={220}></img>
+      <br></br>
+      <Button>Lemonview Chat 1.0 onClick</Button>
+      <br></br>
+      <label>
+        <input type="checkbox" defaultChecked={true}></input> 개인정보 처리방침에 동의합니다.
+      </label>
       <DiaryPersonal />
+      
       <DiaryInputVoice 
         messageApi={messageApi}
         isLoading={isLoading}
