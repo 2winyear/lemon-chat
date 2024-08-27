@@ -31,8 +31,12 @@ Open API Key 발급 후 연동 </br>
 사용자(User)의 역할은 chatGPT에 일반적으로 하는 질문 / eg) 주인공의 심리를 파악해봐 </br>
 
 
+# 빌드 명령어
+npm install vite
+
 # 소스코드 실행방법
 npm run dev
+
 
 # Task
 
