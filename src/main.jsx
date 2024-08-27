@@ -7,8 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from './routes/ErrorPage.jsx';
-import Personal from './routes/Personal.jsx';
-import Root from './routes/root.jsx';
+import Personals from './routes/Personals.jsx';
+import Root from './routes/Root.jsx';
+import Lemon from './routes/Lemon.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,9 +23,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/personals/:personalId",
-    element: <Personal />
-  }
+    path: "/lemon",
+    element: <Lemon />,
+  },
+  {
+    path: "/personals",
+    element: <Personals />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
