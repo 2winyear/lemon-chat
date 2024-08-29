@@ -10,25 +10,32 @@ import ErrorPage from './routes/ErrorPage.jsx';
 import Personals from './routes/Personals.jsx';
 import Root from './routes/Root.jsx';
 import Lemon from './routes/Lemon.jsx';
+import Chat from './routes/Chat.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  // {
+  //   path: "/chat",
+  //   element: <App />,
+  //   errorElement: <ErrorPage />,
+  // },
+  {
+    path: "/personals",
+    element: <Personals />
+  },
+  {
+    path: "/lemon",
+    element: <Chat />,
     errorElement: <ErrorPage />,
   },
   {
     path: "/chat",
-    element: <App />,
+    element: <Chat />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/lemon",
-    element: <Lemon />,
-  },
-  {
-    path: "/personals",
-    element: <Personals />
   },
 ]);
 

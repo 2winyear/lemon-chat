@@ -1,7 +1,7 @@
 import { Button, Form, Input, Radio, Select } from "antd";
 import "./style.css"
 import { styled } from "styled-components";
-
+import { BrowserRouter, Link } from "react-router-dom";
 
 export default function Personals () {
     return (
@@ -28,7 +28,7 @@ export default function Personals () {
                 <Input className="nicknameBtn"/>
             </div>
         </div>
-        <Button>확인</Button>
+        <Button><Link to="/lemon">확인</Link></Button>
     </div>
     )
 }

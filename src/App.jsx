@@ -76,9 +76,6 @@ function App() {
       </Link>
       <p>----------------------------------------------------------------</p>
 
-
-
-
       <DiaryPersonal />
       <DiaryInputVoice 
         messageApi={messageApi}
