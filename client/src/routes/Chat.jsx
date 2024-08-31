@@ -18,24 +18,22 @@ export default function Chat() {
         <MultiChatWindow
             {...chatProps}
             style={{height:"100vh"}}
-            renderChatHeader={(props) => {
-                if (chatProps.chat?.title.startsWith("AiChat_")) {
-                    return <Ai props={props} activeChat={chatProps.chat} />
-                }
-                if (chatProps.chat?.title.starsWith("AiCode_")) {
-                    return <Ai props={props} activeChat={chatProps.chat} />
-                }
-                
+            renderChatHeader={(props) => (
                 <div className="Header">
                     {/* <Link to="/"></Link> */}
                         <img src={Back} className="header-back-icon"/>Lemonview Chat
                         <br></br>
-                        <StandardMessageForm props={props} activeChat={chatProps.chat}/>
-                </div>
-            }
-        }
+                        <StandardMessageForm props={props} activeChat={chatProps.chat} />
+                </div> 
+            )}
             renderMessageForm={(props) => {
-                return(
+                if (chatProps.chat?.title.startsWith("AiChat_")) {
+                    return <Ai props={props} activeChat={chatProps.chat} />
+                }
+                if (chatProps.chat?.title.startsWith("AiCode_")) {
+                    return <Ai props={props} activeChat={chatProps.chat} />
+                }
+                return (
                     <StandardMessageForm props={props} activeChat={chatProps.chat} />
                 )
             }}
