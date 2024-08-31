@@ -5,42 +5,17 @@ import {
   PaperClipIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-// import MessageFormUI from "./MessageFormUI";
 
-const StandardMessageForm = ({ props, activeChat }) => {
-  const [message, setMessage] = useState("");
-  const [preview, setPreview] = useState("");
-  const [attachment, setAttachment] = useState("");
+  const MessageFormUI = ({
+    setAttachment,
+    message,
+    handleChange,
+    handleSubmit,
+  }) => {
+    const [preview, setPreview] = useState("");
 
-  const handleChange = (e) => setMessage(e.target.value);
-
-  const handleSubmit = () => {
-    const date = new Date()
-      .toISOString()
-      .replace("T", " ")
-      .replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`);
-    const at = attachment ? [{ blob: attachment, file: attachment.name }] : [];
-    const form = {
-      attachments: at,
-      created: date,
-      sender_username: test,
-      text: message,
-      activeChatId: activeChat.id,
-    };
-
-    props.onSubmit(form);
-    setMessage("");
-    setAttachment("");
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter'){
-      handleSubmit();
-    }
-  }
-
-  return (
-    <div className="message-form-container">
+    return (
+      <div className="message-form-container">
         {preview && (
           <div className="message-form-preview">
             <img
@@ -67,7 +42,7 @@ const StandardMessageForm = ({ props, activeChat }) => {
               type="text"
               value={message}
               onChange={handleChange}
-              onKeyDown={handleKeyDown}
+              // onKeyDown={handleKeyDown}
               placeholder="Send a message..."
             />
             {/* {appendText && (
@@ -90,11 +65,10 @@ const StandardMessageForm = ({ props, activeChat }) => {
               }}
             >
               {({ getRootProps, getInputProps, open }) => (
-                <div {...getRootProps()}>
+                <div {...getRootProps({ onClick: event => event.stopPropagation() })}>
                   <input {...getInputProps()} />
                   <PaperClipIcon
                     width={30}
-                    
                     className="message-form-icon-clip"
                     onClick={open}
                   />
@@ -112,7 +86,7 @@ const StandardMessageForm = ({ props, activeChat }) => {
           </div>
         </div>
       </div>
-  );
-};
-
-export default StandardMessageForm;
+    );
+  };
+  
+  export default MessageFormUI;

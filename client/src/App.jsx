@@ -9,7 +9,12 @@ import DiaryPersonal from "./components/DiaryPersonal";
 import DiaryInputVoice from "./components/DiaryInputVoice";
 import "./App.css";
 import Robot from "./assets/mainRobot.png";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
+import ErrorPage from './routes/ErrorPage.jsx';
+import Personals from './routes/Personals.jsx';
+import Root from './routes/Root.jsx';
+import First from './routes/First.jsx';
+import Chat from './routes/Chat.jsx';
 // import { useNavigate } from "react-router-dom";
 // import language from "./pages/Language";
 
@@ -53,43 +58,52 @@ function App() {
   };
 
   return (
-    <AppConatiner>
-      {contextHolder}
-      <div className="subtitle">
-        AI Chat for
-      </div>
+    <BrowserRouter>
+        <Routes>
+          {/* <Route path="/" element={<App />}/> */}
+          <Route path="/lemon" element={<First />}/>
+          <Route path="/personals" element={<Personals />}/>
+          <Route path="/chat" element={<Chat />}/>
+          {/* <RouterProvider router={router} /> */}
+        </Routes>
+    </BrowserRouter>
+    // <AppConatiner>
+    //   {contextHolder}
+    //   <div className="subtitle">
+    //     AI Chat for
+    //   </div>
       
-      <AppTitle>
-        Beauty & Emotion
-      </AppTitle>
-      <br></br>
+    //   <AppTitle>
+    //     Beauty & Emotion
+    //   </AppTitle>
+    //   <br></br>
       
-      <img className="Robot" src={Robot} width={230} height={220}></img>
-      <br></br>
+    //   <img className="Robot" src={Robot} width={230} height={220}></img>
+    //   <br></br>
       
       
-      <label>
-        <input type="checkbox" defaultChecked={true}></input> 개인정보 처리방침에 동의합니다.
-      </label><br></br>
-      <Link to="/personals">
-        <Button>Lemonview Chat 1.0 onClick</Button>
-      </Link>
-      <p>----------------------------------------------------------------</p>
+    //   <label>
+    //     <input type="checkbox" defaultChecked={true}></input> 개인정보 처리방침에 동의합니다.
+    //   </label><br></br>
+    //   <Link to="/personals">
+    //     <Button>Lemonview Chat 1.0 onClick</Button>
+    //   </Link>
+    //   <p>----------------------------------------------------------------</p>
 
-      <DiaryPersonal />
-      <DiaryInputVoice 
-        messageApi={messageApi}
-        isLoading={isLoading}
-        onSubmit={handleSubmit}/>
-      <DiaryInput
-        messageApi={messageApi}
-        isLoading={isLoading}
-        onSubmit={handleSubmit}
-      />
-      <div id="capture">
-        <DiaryDisplay isLoading={isLoading} data={data} />
-      </div>
-    </AppConatiner>
+    //   <DiaryPersonal />
+    //   <DiaryInputVoice 
+    //     messageApi={messageApi}
+    //     isLoading={isLoading}
+    //     onSubmit={handleSubmit}/>
+    //   <DiaryInput
+    //     messageApi={messageApi}
+    //     isLoading={isLoading}
+    //     onSubmit={handleSubmit}
+    //   />
+    //   <div id="capture">
+    //     <DiaryDisplay isLoading={isLoading} data={data} />
+    //   </div>
+    // </AppConatiner>
   );
 }
 

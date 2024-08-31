@@ -28,7 +28,7 @@ export default function Personals () {
                 <Input className="nicknameBtn"/>
             </div>
         </div>
-        <Button><Link to="/lemon">확인</Link></Button>
+        <Button><Link to="/chat">확인</Link></Button>
     </div>
     )
 }
