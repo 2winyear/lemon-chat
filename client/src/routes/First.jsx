@@ -9,13 +9,7 @@ import DiaryInputVoice from "../components/DiaryInputVoice";
 import "../App.css";
 import Robot from "../assets/mainRobot.png";
 import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
-import ErrorPage from '../routes/ErrorPage.jsx';
-import Personals from '../routes/Personals.jsx';
-import Root from '../routes/Root.jsx';
-import Lemon from '../routes/Lemon.jsx';
-import Chat from '../routes/Chat.jsx';
-// import { useNavigate } from "react-router-dom";
-// import language from "./pages/Language";
+import "./style.css";
 
 
 const dummyData = JSON.parse(
@@ -57,17 +51,7 @@ function First() {
   };
 
   return (
-    // <BrowserRouter>
-    //     <Routes>
-    //       {/* <Route path="/" element={<App />}/> */}
-    //       {/* <Route path="/lemon" element={<Chat />}/> */}
-    //       <Route path="/personals" element={<Personals />}/>
-    //       <Route path="/chat" element={<Chat />}/>
-    //       {/* <RouterProvider router={router} /> */}
-    //     </Routes>
-    // </BrowserRouter>
-    <AppConatiner>
-      {contextHolder}
+    <div className="appContainer">
       <div className="subtitle">
         AI Chat for
       </div>
@@ -79,30 +63,18 @@ function First() {
       
       <img className="Robot" src={Robot} width={230} height={220}></img>
       <br></br>
-      
-      
-      <label>
-        <input type="checkbox" defaultChecked={true}></input> 개인정보 처리방침에 동의합니다.
-      </label><br></br>
-      <Link to="/personals">
-        <Button>Lemonview Chat 1.0 onClick</Button>
-      </Link>
-      <p>----------------------------------------------------------------</p>
 
-      <DiaryPersonal />
-      <DiaryInputVoice 
-        messageApi={messageApi}
-        isLoading={isLoading}
-        onSubmit={handleSubmit}/>
-      <DiaryInput
-        messageApi={messageApi}
-        isLoading={isLoading}
-        onSubmit={handleSubmit}
-      />
-      <div id="capture">
-        <DiaryDisplay isLoading={isLoading} data={data} />
+      <Link to="/personals">
+        <Button className="enter">Lemonview Chat 1.0</Button>
+      </Link>
+      <br></br>
+      
+      <div className="first-label">
+        <label>
+            <input className="checkbox" type="checkbox" defaultChecked={true}></input> 개인정보 처리방침에 동의합니다.
+        </label>
       </div>
-    </AppConatiner>
+    </div>
   );
 }
 
@@ -117,6 +89,7 @@ const AppConatiner = styled.div`
   margin: 0 auto;
 `;
 
+
 const AppTitle = styled.div`
   width: 100%;
   font-weight: 400;
@@ -125,3 +98,4 @@ const AppTitle = styled.div`
   font-family: "Apple SD Gothic Neo";
   text-shadow: 2px 2px 5px gray;
 `;
+

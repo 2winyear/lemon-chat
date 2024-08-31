@@ -5,7 +5,7 @@ import { BrowserRouter, Link } from "react-router-dom";
 
 export default function Personals () {
     return (
-    <div>
+    <div className="personals-show">
         <div className="form">
             <div className="sex">
                 성별 <br></br>
@@ -27,8 +27,13 @@ export default function Personals () {
                 닉네임 <br/>
                 <Input className="nicknameBtn"/>
             </div>
+            
         </div>
-        <Button><Link to="/chat">확인</Link></Button>
+        <Button className="personal-confirm"><Link to="/chat">확인</Link></Button>
+        <div className="personals-footer">
+            본 서비스는 얼굴을 위한 레몬뷰 AI 챗봇으로 <br/>
+            &nbsp;피부과 감정을 위한 AI 지원 서비스입니다.
+        </div>
     </div>
     )
 }

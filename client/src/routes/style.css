@@ -75,36 +75,51 @@
 
 
 .inputPersonBtn {
+    display: inline-block;
     background-color: white;
-    width: 150px;
-    height: 38px;
-    margin: 20px;
-    border-radius: 20px;
-    border-color: #FFDA44;
+    width: 110px;
+    height: 50px;
+    margin: 0;
+    margin-bottom: 10%;
+    border-radius: 8px;
+    border-color: #EDEDED;
 }
 
 .ageBtn {
-    width: 150px;
-    border-radius: 20px;
-    margin: 20px;
-    height: 38px;
-    border-color: #FFDA44;
+    width: 350px;
+    border-radius: 8px;
+    margin: 0%;
+    margin-top: 2%;
+    margin-bottom: 10%;
+    height: 50px;
+    border-color: #EDEDED;
 }
 
+/* text-align: center;
+    width: 350px;
+    height: 50px;
+    background-color: #FFDA44;
+    border: #FFDA44;
+    font-weight: 700; */
+
 .nicknameBtn{
-    width: 150px;
-    border-radius: 20px;
-    margin: 20px;
-    height: 38px;
-    border-color: #FFDA44;
+    width: 350px;
+    border-radius: 8px;
+    height: 50px;
+    border-color: #EDEDED;
+    margin-bottom: 20%;
+    margin-left: 0%;
+    margin-top: 2%;
 }
 
 .age {
     padding-top: 20px;
+    font-weight: 500;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .nick {
+    font-weight: 500;
     padding-top: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -123,6 +138,19 @@
     margin-right: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.personals-show {
+    margin: 30%;
+}
+
+.personals-footer {
+    margin-top: 30px;
+    padding-left: 60px;
+    color: #A2A2A2;
+    font-size: small;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 
 .averScore {
     margin-top: auto;
@@ -143,4 +171,51 @@
 
 .header-back-icon {
     padding-right: 30%;
+}
+
+.Robot {
+    padding-top: 15%;
+    padding-bottom: 15%;
+    text-align: center;
+
+}
+
+.enter {
+    text-align: center;
+    width: 350px;
+    height: 50px;
+    background-color: #FFDA44;
+    border: #FFDA44;
+    font-weight: 700;
+}
+
+.personal-confirm {
+    text-align: center;
+    width: 350px;
+    height: 50px;
+    background-color: #FFDA44;
+    border: #FFDA44;
+    font-weight: 700;
+}
+
+.first-label {
+    color: #A2A2A2;
+    font-size: small;
+    padding-top: 4%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.checkbox {
+    &:checked {
+        background-color: rgba(34, 34, 34, 1);
+    }
+}
+
+.appContainer{
+    text-align: center;
+}
+
+.subtitle {
+    padding-top: 100px;
+    padding-bottom: 2%;
 }
