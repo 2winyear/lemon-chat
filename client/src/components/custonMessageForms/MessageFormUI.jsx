@@ -5,6 +5,8 @@ import {
   PaperClipIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
+import "../style.css"
+import sendMessage from "../../assets/ic_send.png"
 
   const MessageFormUI = ({
     setAttachment,
@@ -45,6 +47,7 @@ import {
               // onKeyDown={handleKeyDown}
               placeholder="Send a message..."
             />
+            
             {/* {appendText && (
               <input
                 className="message-form-assist"
@@ -75,7 +78,8 @@ import {
                 </div>
               )}
             </Dropzone>
-            <PaperAirplaneIcon
+            <img
+              src={sendMessage}
               width={30}
               className="message-form-icon-airplane"
               onClick={() => {

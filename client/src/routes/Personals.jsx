@@ -1,16 +1,33 @@
+import React, { useState } from "react";
 import { Button, Form, Input, Radio, Select } from "antd";
 import "./style.css"
 import { styled } from "styled-components";
 import { BrowserRouter, Link } from "react-router-dom";
 
 export default function Personals () {
+    const [selectedGender, setSelectedGender] = useState(null); // 성별 상태 관리
+
+    const handleGenderClick = (gender) => {
+        setSelectedGender(gender); // 선택된 성별 업데이트
+    };
+    
     return (
     <div className="personals-show">
         <div className="form">
-            <div className="sex">
-                성별 <br></br>
-                <Button className="inputPersonBtn">남성</Button>
-                <Button className="inputPersonBtn">여성</Button>
+            <div className="div-sex">성별</div>
+            <div className="sex">    
+                <Button
+                    className={`inputPersonBtn ${selectedGender === 'male' ? 'selected' : ''}`}
+                    onClick={() => handleGenderClick('male')}
+                >
+                    남성
+                </Button>
+                <Button
+                    className={`inputPersonBtn ${selectedGender === 'female' ? 'selected' : ''}`}
+                    onClick={() => handleGenderClick('female')}
+                >
+                    여성
+                </Button>
             </div>
             <div className="age">
                 연령대 <br></br>
@@ -29,7 +46,7 @@ export default function Personals () {
             </div>
             
         </div>
-        <Button className="personal-confirm"><Link to="/chat">확인</Link></Button>
+        <Link to="/chat"><Button className="personal-confirm">확인</Button></Link>
         <div className="personals-footer">
             본 서비스는 얼굴을 위한 레몬뷰 AI 챗봇으로 <br/>
             &nbsp;피부과 감정을 위한 AI 지원 서비스입니다.

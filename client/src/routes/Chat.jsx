@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; 
 import { useMultiChatLogic, MultiChatSocket, MultiChatWindow } from "react-chat-engine-advanced";
 import StandardMessageForm from "../components/custonMessageForms/StandardMessageForm";
 import "./style.css";
@@ -12,6 +13,8 @@ export default function Chat() {
         "asdf1234"
     )
 
+    const navigate = useNavigate();
+
     return (
     <div style={{flexBasis: "100%"}}>
         <MultiChatSocket {...chatProps} />
@@ -20,10 +23,10 @@ export default function Chat() {
             style={{height:"100vh"}}
             renderChatHeader={(props) => (
                 <div className="Header">
-                    {/* <Link to="/"></Link> */}
-                        <img src={Back} className="header-back-icon"/>Lemonview Chat
-                        <br></br>
-                        <StandardMessageForm props={props} activeChat={chatProps.chat} />
+                    <img
+                        onClick={() => navigate("/personals")}
+                        src={Back} 
+                        className="header-back-icon"/>Lemonview Chat
                 </div> 
             )}
             renderMessageForm={(props) => {

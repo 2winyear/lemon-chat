@@ -77,12 +77,19 @@
 .inputPersonBtn {
     display: inline-block;
     background-color: white;
-    width: 110px;
+    width: 200px;
     height: 50px;
-    margin: 0;
+    margin: 0%;
+    margin-top: 10px;
     margin-bottom: 10%;
     border-radius: 8px;
     border-color: #EDEDED;
+}
+
+.inputPersonBtn.selected {
+    background-color: white;
+    border-color: #FFDA44;
+    color: #FFDA44;
 }
 
 .ageBtn {
@@ -124,7 +131,13 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.div-sex {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .sex {
+    display: flex;
+    gap: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 

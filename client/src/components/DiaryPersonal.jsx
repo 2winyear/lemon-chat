@@ -8,7 +8,11 @@ import down from "../assets/keyboard_double_arrow_down.png"
 
 
 const DiaryPersonal = () => {
-    
+    const [selectedGender, setSelectedGender] = useState("");
+
+    const handleGenderClick = () => {
+        
+    };
 
     return (
     <div>
