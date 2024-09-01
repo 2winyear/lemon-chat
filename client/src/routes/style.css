@@ -154,10 +154,56 @@
 
 .personals-show {
     margin: 30%;
+    position: relative;
 }
 
-.personals-show.gray-background {
-    background-color: #d3d3d3; /* 회색 배경 */
+.personals-show-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.gray-box {
+    width: 500px;
+    height: 812px;
+    background-color: #000000; /* 회색 배경 */
+    position: absolute; /* 부모 요소에 대해 절대 위치 */
+    top: 50%; /* 부모 요소의 가운데에 위치 */
+    left: 60%;
+    transform: translate(-50%, -50%); /* 가운데 정렬 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    z-index: 10;
+    opacity: 0.6;
+}
+
+.language-choose {
+    background-color: white;
+    width: 500px;
+    height: 300px;
+}
+
+.language-choose ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.language-choose li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.language-choose li:hover {
+    color: #09DE8D; /* 강조 색상 */
+}
+
+.language-btn {
+    position: absolute;
+    top: -100px; /* 상단에서의 거리 */
+    right: -100px; /* 오른쪽에서의 거리 */
+    
 }
 
 .personals-footer {
@@ -237,8 +283,3 @@
     padding-bottom: 2%;
 }
 
-.language-btn {
-    position: absolute;
-    top: 20px; /* 상단에서의 거리 */
-    right: 20px; /* 오른쪽에서의 거리 */
-}
