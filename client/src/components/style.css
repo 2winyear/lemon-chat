@@ -195,7 +195,7 @@
 }
 
 .ce-chat-engine {
-    padding-left: 25%;
+    justify-content: center !important;
 }
 
 .ce-message-list::-webkit-scrollbar {
