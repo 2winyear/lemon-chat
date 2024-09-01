@@ -12,6 +12,7 @@ import languageBtnUS from "../assets/ic_us.png";
 export default function Personals () {
     const [selectedGender, setSelectedGender] = useState(null); // 성별 상태 관리
     const [showGrayBox, setShowGrayBox] = useState(false);
+    const [languageSelect, setlanguageSelect] = useState(false);
 
     const handleGenderClick = (gender) => {
         setSelectedGender(gender); // 선택된 성별 업데이트
@@ -20,6 +21,10 @@ export default function Personals () {
     const toggleGrayBox = () => {
         setShowGrayBox(!showGrayBox); // 회색 상자를 토글
     };
+
+    const toggleLanguageSelect = () => {
+        languageSelect(!languageSelect);
+    }
 
     const languages = ['English', '한국어', '日本語', '漢文'];
     const languagesImg = [languageBtnUS, languageBtnKr, languageBtnJp, languageBtnCh];
@@ -34,19 +39,24 @@ export default function Personals () {
             </div>
             {showGrayBox && (
                 <div className="gray-box">
-                    <div className="language-choose">
-                        <h3>언어</h3>
-                        <ul>
-                            {languages.map((language, index) => (
-                                <li key={index}>
-                                    <img src={languagesImg[index]} className="lanuage-icon"/>
-                                    {language}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
                 </div>
             )}
+            {showGrayBox && (
+                <div className="language-choose">
+                    <h3>언어</h3>
+                    <ul>
+                        {languages.map((language, index) => (
+                            <li key={index} onClick={toggleLanguageSelect}>
+                                <img src={languagesImg[index]} className="lanuage-icon"/>
+                                {language}
+                            </li>
+                        ))}
+                    </ul>
+                    <Link to="/chat"><Button className="personal-popup-confirm">확인</Button></Link>
+                </div>
+            )}
+
+
 
             <div className="form">
                 <div className="div-sex">성별</div>
