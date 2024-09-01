@@ -4,6 +4,10 @@ import "./style.css"
 import { styled } from "styled-components";
 import { BrowserRouter, Link } from "react-router-dom";
 import languageBtn from "../assets/ic_language.png";
+import languageBtnCh from "../assets/ic_ch.png";
+import languageBtnJp from "../assets/ic_jp.png";
+import languageBtnKr from "../assets/ic_kr.png";
+import languageBtnUS from "../assets/ic_us.png";
 
 export default function Personals () {
     const [selectedGender, setSelectedGender] = useState(null); // 성별 상태 관리
@@ -18,20 +22,26 @@ export default function Personals () {
     };
 
     const languages = ['English', '한국어', '日本語', '漢文'];
+    const languagesImg = [languageBtnUS, languageBtnKr, languageBtnJp, languageBtnCh];
 
     return (
         <div className="personals-show-wrap">
         <div className="personals-show">
-            <Button className="language-btn" onClick={toggleGrayBox}>
-                <img src={languageBtn} className="language-btn-icon"/>
-            </Button>
-
+            <div className="language-btn-wrap">
+                <Button className="language-btn" onClick={toggleGrayBox}>
+                    <img src={languageBtn} className="language-btn-icon"/>
+                </Button>
+            </div>
             {showGrayBox && (
                 <div className="gray-box">
                     <div className="language-choose">
+                        <h3>언어</h3>
                         <ul>
                             {languages.map((language, index) => (
-                                <li key={index}>{language}</li>
+                                <li key={index}>
+                                    <img src={languagesImg[index]} className="lanuage-icon"/>
+                                    {language}
+                                </li>
                             ))}
                         </ul>
                     </div>
