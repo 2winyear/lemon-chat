@@ -21,8 +21,25 @@ router.post("/text", async (req, res) => {
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: "You are a helpful assistant about skin." }, // this represents the bot and what role they will assume
-        { role: "user", content: text }, // the message that the user sends
+        { 
+          role: "system", 
+          content: `You are a helpful assistant about skin care. 
+          When you give people an answer, you can provide a relevant external link, like from https://www.youtube.com/results?search_query= or Google. 
+          답변은 한 문단으로 이어쓰지 말고, 문장 마다 새로운 줄에 써 줘.
+          
+          user의 답변의 예상해서 user의 어투로 
+          1.[예상질문1] : user의 답변의 예상한 예상질문1을 입력해
+          2.[예상질문2] : user의 답변의 예상한 예상질문2를 입력해
+          예상질문이 없으면 1.[예상질문1] 2.[예상질문2] 항목을 없애고 너가 하고싶은 말을 해줘` 
+        }, // this represents the bot and what role they will assume
+        { 
+          role: "user", 
+          content: text 
+        }, // the message that the user sends
+        // {
+        //   role: "assistant",
+        //   conten
+        // }
 
         // BONUS NOTE: you can also provide a list of messages to the bot to give context
         // and the bot can use that information to respond to the user as needed, ie adding:
