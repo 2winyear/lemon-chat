@@ -29,6 +29,15 @@ export default function Personals () {
     const languages = ['English', '한국어', '日本語', '漢文'];
     const languagesImg = [languageBtnUS, languageBtnKr, languageBtnJp, languageBtnCh];
 
+    const checkOnlyOne = (checkThis) => {
+        const checkboxes = document.getElementsByName('test')
+        for (let i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i] !== checkThis) {
+            checkboxes[i].checked = false
+          }
+        }
+      }
+
     return (
         <div className="personals-show-wrap">
         <div className="personals-show">
@@ -46,10 +55,16 @@ export default function Personals () {
                     <h3>언어</h3>
                     <ul>
                         {languages.map((language, index) => (
-                            <li key={index} onClick={toggleLanguageSelect}>
-                                <img src={languagesImg[index]} className="lanuage-icon"/>
-                                {language}
-                            </li>
+                            <StyledListItem key={index}>
+                            <img src={languagesImg[index]} className="lanuage-icon"/>
+                            {language}
+                            <StyledInput
+                                id="text"
+                                type="checkbox"
+                                name="test"
+                                onChange={(e) => checkOnlyOne(e.target)}
+                            />
+                        </StyledListItem>
                         ))}
                     </ul>
                     <Link to="/chat"><Button className="personal-popup-confirm">확인</Button></Link>
@@ -101,3 +116,26 @@ export default function Personals () {
     )
 }
 
+const StyledInput = styled.input`
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1.5px solid gainsboro;
+    border-radius: 0.8rem;
+    margin-left: auto;
+    &:checked {
+        border-color: transparent;
+        background-size: 100% 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-color: #FFDA44;
+      }
+`;
+
+
+const StyledListItem = styled.li`
+    display: flex;
+    align-items: center;
+    user-select: none;
+    margin-bottom: 10px;
+`;
