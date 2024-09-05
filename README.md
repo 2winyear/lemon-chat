@@ -1,7 +1,8 @@
 ## lemon-chat
 <div align="center">
 <img width="329" alt="image" src="https://github.com/user-attachments/assets/f7159b60-1cfe-4ab8-aa83-825d4ad0c68e">
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F2winyear%2FProject_42seoul&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+  
+<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2F2winyear%2Flemon-chat&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
 </div>
 
 1차 개발 기간 : 2024년 08년 07일 ~ 2024년 8월 31일
@@ -15,28 +16,38 @@
 ## 시작 가이드
 ### Requirements
 For building and running the application you need:
+npm, node, vite
 
-- [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
-- [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
-- [Strapi 3.6.6](https://www.npmjs.com/package/strapi/v/3.6.6)
 
 ### Installation
 ``` bash
-$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
-$ cd Voluntain-2nd
+$ git clone https://github.com/2winyear/lemon-chat.git
+$ cd lemon-chat
 ```
 #### Backend
 ```
-$ cd strapi-backend
-$ nvm use v.14.19.3
+$ cd server
 $ npm install
-$ npm run develop
+$ npm run dev
 ```
 
 #### Frontend
 ```
-$ cd voluntain-app
-$ nvm use v.14.19.3
-$ npm install 
+$ cd client
+$ npm install vite -f 
 $ npm run dev
 ```
+
+## 실행화면
+lemonview 첫번째 페이지
+![image](https://github.com/user-attachments/assets/c41f7737-47f7-4310-8083-1dc091147140)
+
+lemonview 개인정보 입력
+![image](https://github.com/user-attachments/assets/a76c20e3-605e-4182-ae90-ed8fc4d4f812)
+
+lemonview 언어선택
+![image](https://github.com/user-attachments/assets/b8789608-d2c6-42ee-81a1-dc37cb4a0efb)
+
+lemonvie 채팅
+![image](https://github.com/user-attachments/assets/b2a6527b-a33e-4b83-91d1-f9b3eb86b4e3)
+
