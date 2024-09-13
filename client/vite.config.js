@@ -6,10 +6,10 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
   plugins: [react(), svgr()],
   server:{
-    port:3000,
+    port:80,
     host:"0.0.0.0"
   },
   build: {
     chunkSizeWarningLimit: 1600,
-  }
+  },
 })

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, Input, Radio, Select } from "antd";
+import { Button, Form, Input } from "antd";
 import "./style.css"
 import { styled } from "styled-components";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link, useNavigate } from "react-router-dom";
 import languageBtn from "../assets/ic_language.png";
 import languageBtnCh from "../assets/ic_ch.png";
 import languageBtnJp from "../assets/ic_jp.png";
@@ -11,8 +11,12 @@ import languageBtnUS from "../assets/ic_us.png";
 
 export default function Personals () {
     const [selectedGender, setSelectedGender] = useState(null); // 성별 상태 관리
+    const [age, setAge] = useState(""); // 연령대 상태 관리
+    const [nickname, setNickname] = useState(""); // 닉네임 상태 관리
     const [showGrayBox, setShowGrayBox] = useState(false);
     const [languageSelect, setlanguageSelect] = useState(false);
+    
+    const navigate = useNavigate(); // useNavigate hook 사용
 
     const handleGenderClick = (gender) => {
         setSelectedGender(gender); // 선택된 성별 업데이트
@@ -30,13 +34,23 @@ export default function Personals () {
     const languagesImg = [languageBtnUS, languageBtnKr, languageBtnJp, languageBtnCh];
 
     const checkOnlyOne = (checkThis) => {
-        const checkboxes = document.getElementsByName('test')
+        const checkboxes = document.getElementsByName('test');
         for (let i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i] !== checkThis) {
-            checkboxes[i].checked = false
-          }
+            if (checkboxes[i] !== checkThis) {
+                checkboxes[i].checked = false;
+            }
         }
-      }
+    };
+
+    // 폼 검증 후 페이지 이동 함수
+    const handleSubmit = () => {
+        if (selectedGender && age && nickname) {
+            // 모든 필드가 채워졌다면 /chat 페이지로 이동
+            navigate("/chat");
+        } else {
+            alert("성별, 연령대, 닉네임을 입력해주세요.");
+        }
+    };
 
     return (
         <div className="personals-show-wrap">
@@ -67,11 +81,9 @@ export default function Personals () {
                         </StyledListItem>
                         ))}
                     </ul>
-                    <Link to="/chat"><Button className="personal-popup-confirm">확인</Button></Link>
+                    <Button className="personal-popup-confirm">확인</Button>
                 </div>
             )}
-
-
 
             <div className="form">
                 <div className="div-sex">성별</div>
@@ -91,8 +103,8 @@ export default function Personals () {
                 </div>
                 <div className="age">
                     연령대 <br></br>
-                    <select className="ageBtn">
-                        <option value="default" className="ageDefault">나이를 선택하세요</option>
+                    <select className="ageBtn" value={age} onChange={(e) => setAge(e.target.value)}>
+                        <option value="">나이를 선택하세요</option>
                         <option value="10대">10대</option>
                         <option value="20대">20대</option>
                         <option value="30대">30대</option>
@@ -102,11 +114,11 @@ export default function Personals () {
                 </div>
                 <div className="nick">
                     닉네임 <br/>
-                    <Input className="nicknameBtn"/>
+                    <Input className="nicknameBtn" value={nickname} onChange={(e) => setNickname(e.target.value)}/>
                 </div>
                 
             </div>
-            <Link to="/chat"><Button className="personal-confirm">확인</Button></Link>
+            <Button className="personal-confirm" onClick={handleSubmit}><Link to="/chat">확인</Link></Button>
             <div className="personals-footer">
                 본 서비스는 얼굴을 위한 레몬뷰 AI 챗봇으로 <br/>
                 &nbsp;피부과 감정을 위한 AI 지원 서비스입니다.
@@ -129,9 +141,8 @@ const StyledInput = styled.input`
         background-position: 50%;
         background-repeat: no-repeat;
         background-color: #FFDA44;
-      }
+    }
 `;
-
 
 const StyledListItem = styled.li`
     display: flex;

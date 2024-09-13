@@ -6,7 +6,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { Configuration, OpenAIApi } from "openai";
 import openAiRoutes from "./routes/openai.js";
-// import authRoutes from "./routes/auth.js";
+import path from "path";
+import { fileURLToPath } from "url";
+import authRoutes from "./routes/auth.js"
+
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -25,12 +28,22 @@ const configuration = new Configuration({
 });
 export const openai = new OpenAIApi(configuration);
 
+/* STATIC FILES */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use("/auth", authRoutes);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
+});
+
 /* ROUTES */
 app.use("/openai", openAiRoutes);
-// app.use("/auth", authRoutes);
 
 /* SERVER SETUP */
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${PORT}`);
 });

@@ -3,10 +3,14 @@
     "version": "1.0.0",
     "main": "index.js",
     "type": "module",
+
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon index.js"
+        "dev": "nodemon index.js",
+        "build": "cd ../client && npm run build && cd ../server && echo \"Server ready for deployment\"",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "start": "node index.js"
     },
+    
     "keywords": [],
     "author": "",
     "license": "ISC",
@@ -21,7 +25,9 @@
         "openai": "^3.3.0"
     },
     "devDependencies": {
+        "@nestjs/cli": "^10.4.5",
         "nodemon": "^2.0.20"
     },
-    "description": ""
+    "description": "",
+    "homepage": "./"
 }
